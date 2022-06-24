@@ -1,2 +1,2 @@
-sanitycheck 3
+sanitycheck 4
 
