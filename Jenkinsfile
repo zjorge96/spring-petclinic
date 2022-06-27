@@ -4,11 +4,11 @@ pipeline {
     stages {
         stage('Build') {
             tools {
-                java "java8"
+                jdk "java8"
+                maven "maven3"
             }
             steps {
                 echo 'Building..'
-                sh "apk add maven"
                 sh "mvn clean install"
             }
         }
