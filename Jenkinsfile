@@ -1,9 +1,15 @@
 pipeline {
     agent any
+
+    environment {
+        ARTIFACTORY_REPO = 'jenkins-artifactory'
+    }
+
     tools {
         jdk "java8"
         maven "maven3"
     }
+
     stages {
         stage('Build') {
             steps {
@@ -23,7 +29,7 @@ pipeline {
                 script {
                     if (env.BRANCH_NAME == 'master') {
                         echo 'Deploying....'
-                        sh "curl -u admin:password -X PUT 'http://172.24.0.3:8082/artifactory/jenkins-artifactory/petclinic.war' -T 'target/petclinic.war'"
+                        sh "curl -u admin:password -X PUT 'http://172.24.0.3:8082/artifactory/${ARTIFACTORY_REPO}/petclinic.war' -T 'target/petclinic.war'"
                     } else {
                         sh "echo 'Not master branch. Nothing to deploy.'"
                     }
