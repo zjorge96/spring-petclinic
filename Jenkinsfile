@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             tools {
-                jdk "jdk-1.8.101"
+                jdk "java8"
             }
             steps {
                 echo 'Building..'
