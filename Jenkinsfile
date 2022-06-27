@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             tools {
-                // jdk "java8"
+                jdk "java8"
                 maven "maven3"
             }
             steps {
