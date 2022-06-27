@@ -20,13 +20,15 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
-                sh "echo ${env.BRANCH_NAME}"
-                // if (env.BRANCH_NAME == 'master') {
-                //     sh "curl -u admin:password -X PUT 'http://172.24.0.3:8082/artifactory/jenkins-artifactory/petclinic.war' -T 'target/petclinic.war'"
-                // } else {
-                //     sh "echo 'Not master branch. Nothing to deploy.'"
-                // }
+                script {
+                    if (env.BRANCH_NAME == 'master') {
+                        echo 'Deploying....'
+                        // sh "curl -u admin:password -X PUT 'http://172.24.0.3:8082/artifactory/jenkins-artifactory/petclinic.war' -T 'target/petclinic.war'"
+                    } else {
+                        sh "echo 'Not master branch. Nothing to deploy.'"
+                    }
+                }
+                
             }
         }
     }
