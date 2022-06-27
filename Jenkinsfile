@@ -8,6 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh "apk add curl"
                 sh "mvn clean install"
             }
         }
