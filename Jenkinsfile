@@ -1,12 +1,11 @@
 pipeline {
     agent any
-
+    tools {
+        jdk "java8"
+        maven "maven3"
+    }
     stages {
         stage('Build') {
-            tools {
-                jdk "java8"
-                maven "maven3"
-            }
             steps {
                 echo 'Building..'
                 sh "mvn clean install"
