@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh "curl -u admin:password -X PUT 'http://localhost:8082/artifactory/jenkins-artifactory/petclinic.war' -T petclinic.war"
+                sh "curl -u admin:password -X PUT 'http://172.24.0.3:8082/artifactory/jenkins-artifactory/petclinic.war' -T petclinic.war"
             }
         }
     }
