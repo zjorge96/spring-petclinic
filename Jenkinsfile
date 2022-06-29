@@ -7,7 +7,7 @@ pipeline {
         PACKAGE_TYPE='war' // Check the pom file for the packaging type
         JDK_NAME='java8' // Configure JAVA in Gobal Tool Configuration
         MAVEN_NAME='maven3' // Config MAVEN in Gobal Tool Configuration
-        POM_VERSION=readMavenPom().getVersion() // Read the version from the pom file (pipeline-utility-steps plugin required)
+        // POM_VERSION=readMavenPom().getVersion() // Read the version from the pom file (pipeline-utility-steps plugin required)
     }
 
     tools {
@@ -35,7 +35,7 @@ pipeline {
                     if (env.BRANCH_NAME == 'master') {
                         echo 'Deploying..'
                         // The extra \ at the end of this line is required due to escape it since it is a special character in Groovy.
-                        sh "find ./target/ -name *.${PACKAGE_TYPE} -type f -exec curl -u admin:password -X PUT http://${IP}:8082/artifactory/${ARTIFACTORY_REPO}/${POM_VERSION}-{} -T {} \\;"
+                        sh "find ./target/ -name *.${PACKAGE_TYPE} -type f -exec curl -u admin:password -X PUT http://${IP}:8082/artifactory/${ARTIFACTORY_REPO}/ -T {} \\;"
                     } else {
                         echo 'Not master branch. Nothing to deploy.'
                     }
