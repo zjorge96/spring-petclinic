@@ -416,16 +416,17 @@
             </plugin>
         </plugins>
     </reporting>
-
     <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>51d60e979fb8-releases</name>
+            <url>http://172.24.0.3:8081/artifactory/jenkins-artifactory</url>
+        </repository>
         <snapshotRepository>
             <id>snapshots</id>
-            <url>http://172.24.0.3:8082/artifactory/jenkins-artifactory/snapshots</url>
+            <name>51d60e979fb8-snapshots</name>
+            <url>http://172.24.0.3:8081/artifactory/jenkins-artifactory</url>
         </snapshotRepository>
-        <repository>
-            <id>releases</id>
-            <url>http://172.24.0.3:8082/artifactory/jenkins-artifactory/releases</url>
-        </repository>
     </distributionManagement>
 
     <url>demopetclinic</url>
