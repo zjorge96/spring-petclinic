@@ -35,7 +35,9 @@ pipeline {
                     if (env.BRANCH_NAME == 'master') {
                         echo 'Deploying..'
                         // The extra \ at the end of this line is required due to escape it since it is a special character in Groovy.
-                        sh "find ./target/ -name *.${PACKAGE_TYPE} -type f -exec curl -u admin:password -X PUT http://${IP}:8082/artifactory/${ARTIFACTORY_REPO}/ -T {} \\;"
+                        sh "mvn clean deploy "
+                        // sh "mvn deploy:deploy-file -Durl=http://${IP}:8082/artifactory/ -Drepository=${ARTIFACTORY_REPO} -DpomFile=pom.xml -Dfile=target/${PACKAGE_TYPE}-${env.POM_VERSION}.${PACKAGE_TYPE}"
+                        // sh "find ./target/ -name *.${PACKAGE_TYPE} -type f -exec curl -u admin:password -X PUT http://${IP}:8082/artifactory/${ARTIFACTORY_REPO}/ -T {} \\;"
                     } else {
                         echo 'Not master branch. Nothing to deploy.'
                     }
