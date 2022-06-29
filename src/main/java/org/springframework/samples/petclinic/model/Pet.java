@@ -47,7 +47,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "pets")
 public class Pet extends NamedEntity {
 
-    @Column(name = "birth_date_for_the_little_one")
+    @Column(name = "birth_date")
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private DateTime birthDate;
@@ -64,6 +64,7 @@ public class Pet extends NamedEntity {
     private Set<Visit> visits;
 
     public DateTime getBirthDate() {
+        print((this.birthDate == null) ? "null" : this.birthDate.toString());
         return this.birthDate;
     }
 
