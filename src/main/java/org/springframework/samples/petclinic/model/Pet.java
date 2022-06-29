@@ -64,7 +64,7 @@ public class Pet extends NamedEntity {
     private Set<Visit> visits;
 
     public DateTime getBirthDate() {
-        print((this.birthDate == null) ? "null" : this.birthDate.toString());
+        System.out.println((this.birthDate == null) ? "null" : this.birthDate.toString());
         return this.birthDate;
     }
 
