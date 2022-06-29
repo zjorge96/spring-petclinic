@@ -289,7 +289,7 @@
 
     <!-- Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
     <build>
-        <finalName>${project.artifactId}-${project.version}</finalName>
+        <!-- <finalName>${project.artifactId}-${project.version}</finalName> -->
         <defaultGoal>install</defaultGoal>
         <testResources>
             <testResource>
