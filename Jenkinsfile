@@ -7,7 +7,7 @@ pipeline {
         PACKAGE_TYPE='war' // Check the pom file for the packaging type
         JDK_NAME='java8' // Configure JAVA in Gobal Tool Configuration
         MAVEN_NAME='maven3' // Config MAVEN in Gobal Tool Configuration
-        POM_VERSION=readMavenPom('pom.xml').version() // Read the version from the pom file (pipeline-utility-steps plugin required)
+        POM_VERSION=readMavenPom().getVersion() // Read the version from the pom file (pipeline-utility-steps plugin required)
     }
 
     tools {
